@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Specify the path to Composer executable and install dependencies
-                sh '/var/lib/jenkins/workspace/CI_pipeline@tmp/durable-ea4757e7/script.sh.copy install'
+                sh '/var/lib/jenkins/workspace/CI_pipeline@tmp/durable-ea4757e7/script.sh install'
             }
         }
         
