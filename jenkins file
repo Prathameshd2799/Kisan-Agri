@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from Git repository
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Prathameshd2799/Kisan-Agri.git'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                // Install dependencies using Composer
+                sh 'composer install'
+            }
+        }
+        
+        // Add more stages for additional tasks like running tests, code analysis, deployment, etc.
+    }
+    
+    // Configure global post-build actions if needed
+    post {
+        always {
+            // Clean up workspace after build
+            cleanWs()
+        }
+    }
+}
